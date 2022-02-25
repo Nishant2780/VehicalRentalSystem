@@ -31,7 +31,7 @@
     />
     <meta http-equiv="Content-Language" content="en" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Dashboard</title>
+    <title>Admin Panel</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
@@ -165,18 +165,18 @@
                 <li>
                   <a href="#" class="white">
                     <i class="bx bxs-registered"></i>
-                    Register Vechile
+                    Vehical Details
                     <i class="bx bx-chevron-left"></i>
                   </a>
                   <ul>
                     <li>
-                      <a href="" class="white"> All Request </a>
+                      <a href="{% url 'admin_panel:create_type' %}" class="white"> Vehical Type </a>
                     </li>
                     <li>
-                      <a href="" class="white"> All Vechicle </a>
+                      <a href="{% url 'admin_panel:addbrand' %}" class="white"> Brand </a>
                     </li>
                     <li>
-                      <a href="" class="white"> Vechicle Documentration </a>
+                      <a href="{% url 'admin_panel:category' %}" class="white">Vehical Category </a>
                     </li>
                     <li>
                       <a href="" class="white"> Vechicle maintance </a>

@@ -1,0 +1,20 @@
+{% extends 'admin_panel/base.html' %}
+{% load static %}
+
+    {% block main %}
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit"> Submit</button>
+    </form>
+
+   <div class="container">
+    {% for i in data %}
+    {{i.Type_Name}}
+    <img src="{{i.Type_Image.url}}" height="20px" width="20px" alt="">
+    <br>
+    {% endfor %}
+   </div>
+
+    {% endblock %}

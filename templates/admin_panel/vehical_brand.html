@@ -1,0 +1,38 @@
+{% extends 'admin_panel/base.html' %}
+{% load static %}
+
+    {% block main %}
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit"> Submit</button>
+    </form>
+
+    <h1>Vehical Brand </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">NO.</th>
+                <th scope="col">Brand Name</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ i.BrandName }}</td>
+                <td>{{ i.Action }}</td>
+            
+                <td>
+                    <a class="btn btn-secondary" href="{% url 'admin_panel:updatebrand' i.id %}" role="button">Update</a>
+                    <a class="btn btn-danger" href="{% url 'admin_panel:deletebrand' i.id %}" role="button">Delete</a>
+                   
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    {% endblock %}
