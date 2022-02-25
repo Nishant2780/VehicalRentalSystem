@@ -6,9 +6,12 @@ app_name = "admin_panel"
 
 urlpatterns = [
     path('home/', views.home, name='home'),
+
     path('create_type/', views.create_type, name='create_type'),
-    path('brand/', views.addbrand, name='addbrand'),
-    
+    path('updatetype/<int:id>', views.updatetype, name="updatetype"),
+    path('deletetype/<int:id>', views.deletetype, name="deletetype"),
+
+    path('brand/', views.addbrand, name='addbrand'),    
     path('updatebrand/<int:id>', views.updatebrand, name="updatebrand"),
     path('deletebrand/<int:id>', views.deletebrand, name="deletebrand"),
 
@@ -18,7 +21,5 @@ urlpatterns = [
     path('deletecategory/<int:id>', views.deletecategory, name="deletecategory"),
 
 
-
-
-    
+   
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

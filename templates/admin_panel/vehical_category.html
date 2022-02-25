@@ -1,13 +1,30 @@
 {% extends 'admin_panel/base.html' %}
 {% load static %}
 
+{% block head %}
+    
+<style>
+    .table{
+        background-color: rgb(33, 152, 199) !important;
+        border-radius: 25px;
+        
+    }
+    
+    
+</style>
+
+      {% endblock %}
+
+
     {% block main %}
     
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit"> Submit</button>
+        <button class="btn btn-danger" type="submit"> Submit</button>
     </form>
+    <br>
+    <br>
 
 
     <h1>Vehical Category </h1>
@@ -24,9 +41,8 @@
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>{{ i.Category_Name }}</td>
-                <td>{{ i.Action }}</td>
-            
-                <td>
+                <td>{{ i.Action }}
+
                     <a class="btn btn-secondary" href="{% url 'admin_panel:updatecategory' i.id %}" role="button">Update</a>
                     <a class="btn btn-danger" href="{% url 'admin_panel:deletecategory' i.id %}" role="button">Delete</a>
                    

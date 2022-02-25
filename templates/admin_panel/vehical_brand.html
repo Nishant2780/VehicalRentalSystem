@@ -1,17 +1,36 @@
 {% extends 'admin_panel/base.html' %}
 {% load static %}
 
+{% block head %}
+    
+<style>
+    .table{
+        background-color: rgb(33, 152, 199) !important;
+        border-radius: 25px;
+        
+    }
+    
+    
+</style>
+
+      {% endblock %}
+
     {% block main %}
     
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit"> Submit</button>
+        
+
+        <button class="btn btn-danger" type="submit"> Submit</button>
     </form>
+
+    <br>
+    <br>
 
     <h1>Vehical Brand </h1>
     <table class="table">
-        <thead>
+        <thead class="thead">
             <tr>
                 <th scope="col">NO.</th>
                 <th scope="col">Brand Name</th>
@@ -23,9 +42,9 @@
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>{{ i.BrandName }}</td>
-                <td>{{ i.Action }}</td>
+                <td>{{ i.Action }}
             
-                <td>
+                
                     <a class="btn btn-secondary" href="{% url 'admin_panel:updatebrand' i.id %}" role="button">Update</a>
                     <a class="btn btn-danger" href="{% url 'admin_panel:deletebrand' i.id %}" role="button">Delete</a>
                    

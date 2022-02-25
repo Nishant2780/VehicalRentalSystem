@@ -1,20 +1,63 @@
 {% extends 'admin_panel/base.html' %}
 {% load static %}
 
+{% block head %}
+    
+<style>
+    .table{
+        background-color: rgb(33, 152, 199) !important;
+        border-radius: 25px;
+        
+    }
+    .img{
+        /* width: 100%; */
+        height: 60px;
+    }
+    
+    
+</style>
+
+      {% endblock %}
+
+
     {% block main %}
     
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit"> Submit</button>
+        <button type="submit" class="btn btn-danger"> Submit</button>
     </form>
 
-   <div class="container">
-    {% for i in data %}
-    {{i.Type_Name}}
-    <img src="{{i.Type_Image.url}}" height="20px" width="20px" alt="">
     <br>
-    {% endfor %}
-   </div>
+    <br>
+
+    <h1>Vehical Type </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">NO.</th>
+                <th scope="col">Category Name </th>
+                <th scope="col">Image</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ i.Type_Name }}</td>
+                <td><img src="{{i.Type_Image.url}}" class="img" alt="">
+
+                <a class="btn btn-secondary" href="{% url 'admin_panel:updatetype' i.id %}" role="button">Update</a>
+                <a class="btn btn-danger" href="{% url 'admin_panel:deletetype' i.id %}" role="button">Delete</a>
+                   
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+   
 
     {% endblock %}
