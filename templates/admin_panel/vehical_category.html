@@ -32,7 +32,8 @@
         <thead>
             <tr>
                 <th scope="col">NO.</th>
-                <th scope="col">Category Name </th>
+                <th scope="col">Category Name</th>
+                <th scope="col">Vehical Type</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -41,6 +42,7 @@
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>{{ i.Category_Name }}</td>
+                <td>{{ i.Vehical_TypeID }}</td>
                 <td>{{ i.Action }}
 
                     <a class="btn btn-secondary" href="{% url 'admin_panel:updatecategory' i.id %}" role="button">Update</a>

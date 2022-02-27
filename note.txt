@@ -1,0 +1,17 @@
+ADD NEW VARIANT
+
+    Type (bike, car, cycle)
+
+        Details:
+            Brand:
+            Variant Name:
+            Category:
+            Fuel Type:
+            Seat Capacity:
+        Photo:
+
+        Features:
+            CAR:  Air Condition, Power Door Lock, Power Steering, Air bags, etc...
+            BIKE: 
+            CYCLE: 
+    

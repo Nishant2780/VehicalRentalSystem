@@ -16,6 +16,9 @@ class VehicalType(models.Model):
     def __str__(self):
         return self.Type_Name
 
+    class Meta:
+        db_table = 'VehicalType'
+
 class brand(models.Model):
     BrandName = models.CharField(max_length=50)
     UserId = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -24,10 +27,18 @@ class brand(models.Model):
     def __str__(self):
         return self.BrandName
 
+    class Meta:
+        db_table = 'brand'
+
 class category_list(models.Model):
     Category_Name = models.CharField(max_length=50)
     AddDate = models.DateTimeField(auto_now_add=True)
     UserId = models.ForeignKey(User, on_delete=models.CASCADE)
+    Vehical_TypeID = models.ForeignKey(VehicalType, on_delete=models.CASCADE)
+
     
     def __str__(self):
-        return self.BrandName
+        return self.Category_Name
+
+    class Meta:
+        db_table = 'category_list'

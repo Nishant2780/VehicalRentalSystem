@@ -16,6 +16,7 @@ from .forms import *
 def demo(request):
     return redirect("accounts:login_page")
 
+
 def user_signup(request):
     if request.method == "POST":
         form_v = UserloginForm(request.POST, request.FILES)
@@ -32,7 +33,6 @@ def user_signup(request):
     return render (request, "accounts/user_signup.html", {'form': form_v})
         
 
-
 def admin_signup(request):
     if request.method == "POST":
         form_v = UserloginForm(request.POST, request.FILES)
@@ -48,10 +48,7 @@ def admin_signup(request):
         form_v = UserloginForm()
     return render (request, "accounts/admin_signup.html", {'form': form_v})
 
-
-        
-
-
+    
 def owner_signup(request):
     if request.method == "POST":
         form_v = UserloginForm(request.POST, request.FILES)
@@ -68,10 +65,6 @@ def owner_signup(request):
     return render (request, "accounts/owner_signup.html", {'form': form_v})
 
         
-
-
-
-
 def login_page(request):        
     if request.method == 'POST':
         username = request.POST.get('email')
