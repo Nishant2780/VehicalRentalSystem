@@ -5,6 +5,7 @@ from . import views
 app_name = "accounts"
 
 urlpatterns = [
+    path('', views.demo, name='demo'),
     path('login/', views.login_page, name='login_page'),
 
     path('user_signup/', views.user_signup, name='user_signup'),

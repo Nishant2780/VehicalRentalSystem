@@ -47,7 +47,7 @@
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>{{ i.Type_Name }}</td>
                 <td><img src="{{i.Type_Image.url}}" class="img" alt="">
-
+                    <td>
                 <a class="btn btn-secondary" href="{% url 'admin_panel:updatetype' i.id %}" role="button">Update</a>
                 <a class="btn btn-danger" href="{% url 'admin_panel:deletetype' i.id %}" role="button">Delete</a>
                    

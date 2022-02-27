@@ -24,4 +24,4 @@ git commit -m "first commit"
 
 git add .
 git commit -m "added git commands"
-D:\D\Project\vehicalrental>git push origin master
+git push origin master
