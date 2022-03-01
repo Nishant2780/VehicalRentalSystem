@@ -4,11 +4,11 @@
 {% block head %}
     
 <style>
-    .table{
+    /* .table{
         background-color: rgb(33, 152, 199) !important;
         border-radius: 25px;
         
-    }
+    } */
     
     
 </style>
@@ -29,8 +29,8 @@
 
     <h1>Vehical Category </h1>
     <table class="table">
-        <thead>
-            <tr>
+        <thead class="table-dark" >
+            <tr >
                 <th scope="col">NO.</th>
                 <th scope="col">Category Name</th>
                 <th scope="col">Vehical Type</th>
@@ -39,8 +39,8 @@
         </thead>
         <tbody>
             {% for i in data %}
-            <tr>
-                <th scope="row">{{ forloop.counter }}</th>
+            <tr class="shadow p-3 mb-5 bg-body rounded" >
+                <td scope="row">{{ forloop.counter }}</td>
                 <td>{{ i.Category_Name }}</td>
                 <td>{{ i.Vehical_TypeID }}</td>
                 <td>{{ i.Action }}

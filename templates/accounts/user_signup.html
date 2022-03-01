@@ -12,9 +12,11 @@
     <style>
         body{
             background-image: linear-gradient(120deg,#8e44ad,#3498db);
-            
-
         }
+        .login-form{
+            height: 700px !important;
+            padding: 60px 40px !important;
+        }    
     </style>
 
 </head>
@@ -32,6 +34,16 @@
     <h1>User Sign Up</h1>
     
     <div class="txtb">
+        <input type="text" name="first_name">
+        <span data-placeholder="first_name" ></span>
+    </div>
+    
+    <div class="txtb">
+        <input type="text" name="last_name">
+        <span data-placeholder="last_name" ></span>
+    </div>
+
+    <div class="txtb">
         <input type="email" name="email">
         <span data-placeholder="email" ></span>
     </div>
@@ -40,6 +52,17 @@
         <input type="password" name="password">
         <span data-placeholder="Password" ></span>
     </div>
+    
+    <div class="txtb">
+        <input type="number" name="Mobile_Number">
+        <span data-placeholder="Mobile_Number" ></span>
+    </div>
+    
+    <div class="txtb">
+        <input type="number" name="Pincode">
+        <span data-placeholder="Pincode" ></span>
+    </div>
+
 
     <!-- <input type="file" id="img" name="image" accept="image/*" id="id_image">
     <br><br>     -->
@@ -52,7 +75,7 @@
 
     <input type="submit" class="logbtn" value="Sigh Up">
     <br>
-    <div class="bottom-text">
+    <div >
         <a href="{% url 'accounts:login_page' %}"><b>Login</b></a>
     </div>
     

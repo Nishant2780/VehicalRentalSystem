@@ -1,6 +1,6 @@
 from dataclasses import field
 from tkinter import Widget
-from .models import VehicalType,brand,category_list
+from .models import VehicalType,brand,category_list,vehical_Variant,Vehical_Registration
 from django import forms
 
 
@@ -21,3 +21,18 @@ class category_listform(forms.ModelForm):
         model  = category_list
         fields = '__all__'
         exclude = ('AddDate','UserId')
+
+        
+class vehical_Variantform(forms.ModelForm):
+    class Meta:
+        model  = vehical_Variant
+        fields = '__all__'
+        exclude = ('AddDate','UserId')
+
+class Vehical_Registrationform(forms.ModelForm):
+    class Meta:
+        model  = Vehical_Registration
+        fields = '__all__'
+        exclude = ('AddDate','UserId', 'Owner_Driving_Licence', 'RCBOOK')
+
+

@@ -51,7 +51,7 @@ def admin_signup(request):
     
 def owner_signup(request):
     if request.method == "POST":
-        form_v = UserloginForm(request.POST, request.FILES)
+        form_v = ownerloginForm(request.POST, request.FILES)
         if form_v.is_valid():
             asd = form_v.save()
             asd.is_owner = True
@@ -61,7 +61,7 @@ def owner_signup(request):
         else:
             print(form_v.errors)
     else: 
-        form_v = UserloginForm()
+        form_v = ownerloginForm()
     return render (request, "accounts/owner_signup.html", {'form': form_v})
 
         
@@ -79,7 +79,7 @@ def login_page(request):
                 return HttpResponseRedirect(reverse('user Home'))
             if user.is_active and user.is_owner:
                 login(request, user)
-                return HttpResponseRedirect(reverse('owner Home'))
+                return HttpResponseRedirect(reverse('owner_panel:home'))
             else:                
                 messages.warning(request, 'User is Not Active')
                 return HttpResponseRedirect(reverse('accounts:user_login'))

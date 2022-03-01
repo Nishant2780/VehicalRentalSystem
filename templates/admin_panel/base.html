@@ -131,20 +131,19 @@
             style="background: #233c46"    >
             <div class="app-sidebar__inner">
               <ul class="vertical-nav-menu">
+
                 <li class="app-sidebar__heading">Dashboards</li>
                 
                 <li>
                   <a href="" class="white">
                     <i class="bx bx-user"></i>
-                    user
+                    User
                     <i class="bx bx-chevron-left"></i>
                   </a>
                   <ul>
+        
                     <li>
-                      <a href="" class="white"> Add User </a>
-                    </li>
-                    <li>
-                      <a href="" class="white"> User list </a>
+                      <a href="{% url 'admin_panel:Users' %}" class="white"> User list </a>
                     </li>
                   </ul>
                 </li>
@@ -164,30 +163,43 @@
                     <li>
                       <a href="{% url 'admin_panel:category' %}" class="white">Vehical Category </a>
                     </li>
+                    <li>
+                      <a href="{% url 'admin_panel:Vehical_Variant' %}" class="white">Vehical Variant </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'admin_panel:Register_Vehical_List' %}" class="white">Register Vehical List</a>
+                    </li>
                   </ul>
                 </li>
 
                 <li>
-                  <a href="#" class="white">
-                    <i class="bx bxs-car-garage"></i>
-                    Car Pool
+                  <a href="" class="white">
+                    <i class="bx bx-user"></i>
+                    Owner Details
                     <i class="bx bx-chevron-left"></i>
                   </a>
                   <ul>
+        
                     <li>
-                      <a href="" class="white"> All Car pool </a>
-                    </li>
-                    <li>
-                      <a href="" class="white"> car pool complains </a>
-                    </li>
-                    <li>
-                      <a href="" class="white"> Car pool arrings </a>
-                    </li>
-                    <li>
-                      <a href="" class="white"> car pool user </a>
+                      <a href="{% url 'admin_panel:owner_rq_List' %}" class="white">Request List</a>
                     </li>
                   </ul>
                 </li>
+
+                <li>
+                  <a href="" class="white">
+                    <i class="bx bx-user"></i>
+                    Available Vehical List
+                    <i class="bx bx-chevron-left"></i>
+                  </a>
+                  <ul>
+        
+                    <li>
+                      <a href="" class="white">Available Vehical</a>
+                    </li>
+                  </ul>
+                </li>
+              
 
                 <li>
                   <a href="#" class="white">

@@ -20,6 +20,21 @@ urlpatterns = [
     path('updatecategory/<int:id>', views.updatecategory, name="updatecategory"),
     path('deletecategory/<int:id>', views.deletecategory, name="deletecategory"),
 
+    path('Vehical_Variant/', views.Vehical_Variant, name='Vehical_Variant'),
+    path('Add_Vehical_Variant/', views.Add_Vehical_Variant, name='Add_Vehical_Variant'),
+    path('updatevariant/<int:id>', views.updatevariant, name="updatevariant"),
+    path('deletevariant/<int:id>', views.deletevariant, name="deletevariant"),
+
+    path('vehical_Registration/', views.vehical_Registration, name='vehical_Registration'),
+    path('Register_Vehical_List/', views.Register_Vehical_List, name='Register_Vehical_List'),
+    path('update_Register_Vehical/<int:id>', views.update_Register_Vehical, name="update_Register_Vehical"),
+    path('delete_Register_Vehical/<int:id>', views.delete_Register_Vehical, name="delete_Register_Vehical"),
+
+    path('Users/', views.Users, name='Users'),
+
+    path('owner_rq_List/', views.owner_rq_List, name='owner_rq_List'),
+
+
 
    
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

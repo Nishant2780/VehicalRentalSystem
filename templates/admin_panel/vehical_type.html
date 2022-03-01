@@ -4,14 +4,15 @@
 {% block head %}
     
 <style>
-    .table{
+    /* .table{
         background-color: rgb(33, 152, 199) !important;
         border-radius: 25px;
         
-    }
+    } */
     .img{
         /* width: 100%; */
         height: 60px;
+        border-radius: 12px;
     }
     
     
@@ -33,7 +34,7 @@
 
     <h1>Vehical Type </h1>
     <table class="table">
-        <thead>
+        <thead class="table-dark">
             <tr>
                 <th scope="col">NO.</th>
                 <th scope="col">Category Name </th>
@@ -43,8 +44,8 @@
         </thead>
         <tbody>
             {% for i in data %}
-            <tr>
-                <th scope="row">{{ forloop.counter }}</th>
+            <tr class="shadow p-3 mb-5 bg-body rounded" >
+                <td scope="row">{{ forloop.counter }}</td>
                 <td>{{ i.Type_Name }}</td>
                 <td><img src="{{i.Type_Image.url}}" class="img" alt="">
                     <td>
