@@ -76,7 +76,7 @@ def login_page(request):
                 return HttpResponseRedirect(reverse('admin_panel:home'))
             if user.is_active and user.is_user:
                 login(request, user)
-                return HttpResponseRedirect(reverse('user Home'))
+                return HttpResponseRedirect(reverse('user_panel:home'))
             if user.is_active and user.is_owner:
                 login(request, user)
                 return HttpResponseRedirect(reverse('owner_panel:home'))
@@ -91,6 +91,9 @@ def login_page(request):
         return render(request, 'accounts/login.html', {})
 
 
+def logout_user(request):
+    logout(request)
+    return redirect("accounts:login_page")
 
 
 

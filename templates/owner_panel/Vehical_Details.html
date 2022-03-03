@@ -1,0 +1,76 @@
+{% extends 'owner_panel/base.html' %}
+{% load static %}
+
+{% block main %}
+
+<!-- Banner Starts Here -->
+
+<div class="banner header-text">
+    <div class="owl-banner owl-carousel">
+      <div class="banner-item-01">
+        <div class="text-content">
+          <h4>Find your car today!</h4>
+          <h2>Lorem ipsum dolor sit amet</h2>
+        </div>
+      </div>
+      <div class="banner-item-02">
+        <div class="text-content">
+          <h4>Fugiat Aspernatur</h4>
+          <h2>Laboriosam reprehenderit ducimus</h2>
+        </div>
+      </div>
+      <div class="banner-item-03">
+        <div class="text-content">
+          <h4>Saepe Omnis</h4>
+          <h2>Quaerat suscipit unde minus dicta</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Banner Ends Here -->
+
+    
+    <table class="table">
+        <thead class="table-dark" style="border-radius: 25px;">
+            <tr>
+                <th scope="col">NO.</th>
+                <th scope="col">vehical_Variant</th>
+                <th scope="col">Vehical_Number</th>
+                <th scope="col">Model_Year</th>
+                <th scope="col">KM_reading</th>
+                <th scope="col">Vehical_Orignal_img</th>
+                <th scope="col">Prize Per Day</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr class="shadow p-3 mb-5 bg-body rounded" >
+                <td scope="row">{{ forloop.counter }}</td>
+                <td>{{ data.vehical_Variant }}</td>
+                <td>{{ data.Vehical_Number }}</td>
+                <td>{{ data.Model_Year }}</td>
+                <td>{{ data.KM_reading }}</td>
+                <td>
+                    {% if data.Vehical_Orignal_img %}
+                    <img src="{{ i.Vehical_Orignal_img.url }}" style="height: 50px;" class="rounded" alt="">
+                    {% else %}
+                    No Img
+                    {% endif %}
+                </td>
+                
+                <td>{{ data.Prize }}</td>
+                <td>{{ data.Status }}</td>
+                <td>{{ data.Action }}
+                 
+              </td>
+                
+            
+            </tr>
+            
+        </tbody>
+    </table>
+
+{% endblock %}
+

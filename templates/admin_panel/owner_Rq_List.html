@@ -43,11 +43,29 @@
                 <td>{{ i.Vehical_Number }}</td>
                 <td>{{ i.Model_Year }}</td>
                 <td>{{ i.KM_reading }}</td>
-                <td><img src="{{ i.Vehical_Orignal_img.url }}" class="rounded" alt=""></td>
+                <td>
+                    {% if i.Vehical_Orignal_img %}
+                    <img src="{{ i.Vehical_Orignal_img.url }}" class="rounded" alt="">
+                    {% else %}
+                    No Img
+                    {% endif %}
+                </td>
                 <td>{{ i.Status }}</td>
                 <td>{{ i.Prize }}</td>
-                <td><img src="{{ i.Owner_Driving_Licence.url }}" class="rounded" alt=""></td>
-                <td><img src="{{ i.RCBOOK.url }}" class="rounded" alt=""></td>
+                <td>
+                    {% if i.Owner_Driving_Licence %}
+                    <img src="{{ i.Owner_Driving_Licence.url }}" class="rounded" alt="">
+                    {% else %}
+                    No Img
+                    {% endif %}
+                </td>
+                <td>
+                    {% if i.RCBOOK %}
+                    <img src="{{ i.RCBOOK.url }}" class="rounded" alt="">
+                    {% else %}
+                    No Img
+                    {% endif %}
+                </td>
                 <td>{{ i.Action }}
 
                     <a class="btn btn-secondary" href="{% url 'admin_panel:update_Register_Vehical' i.id %}" role="button">Update</a>

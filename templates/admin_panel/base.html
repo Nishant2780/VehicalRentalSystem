@@ -185,6 +185,20 @@
                     </li>
                   </ul>
                 </li>
+                
+                <li>
+                  <a href="" class="white">
+                    <i class="bx bx-user"></i>
+                    Rent Details
+                    <i class="bx bx-chevron-left"></i>
+                  </a>
+                  <ul>
+        
+                    <li>
+                      <a href="{% url 'admin_panel:Rent_Rq_List_admin' %}" class="white">Rent Request List </a>
+                    </li>
+                  </ul>
+                </li>
 
                 <li>
                   <a href="" class="white">
@@ -256,6 +270,7 @@
 
         <div class="app-main__outer">
           <div class="app-main__inner">
+
             <!-- ------------main section--------->
 
             {% block main %}

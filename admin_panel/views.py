@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-# from django.contrib.auth import authenticate, login, logout
-
-
 from django.contrib import messages
 from .models import *
 from django.urls import reverse
 from .forms import *
+from user_panel.models import *
+
+# from django.contrib.auth import authenticate, login, logout
+
+
 
 
 # Create your views here.
@@ -224,5 +226,11 @@ def Users(request):
     return render(request, 'admin_panel/user_details.html', {'data' : data})
 
 def owner_rq_List(request):
-    data = Vehical_Registration.objects.all()
+    data = Vehical_Registration.objects.all().exclude(UserId=request.user.id)
+    # data = Vehical_Registration.objects.filter(UserId=request.user.id, Status="Available")
     return render(request, 'admin_panel/owner_Rq_List.html', {'data' : data})
+
+def Rent_Rq_List_admin(request):
+    data = VehicalRequest.objects.filter(VehicalId__UserId=request.user.id)
+    # data = Vehical_Registration.objects.filter(UserId=request.user.id, Status="Available")
+    return render(request, 'admin_panel/Rent_Rq_List_admin.html', {'data' : data})

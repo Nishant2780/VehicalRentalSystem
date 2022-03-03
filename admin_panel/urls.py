@@ -33,6 +33,7 @@ urlpatterns = [
     path('Users/', views.Users, name='Users'),
 
     path('owner_rq_List/', views.owner_rq_List, name='owner_rq_List'),
+    path('Rent_Rq_List_admin/', views.Rent_Rq_List_admin, name='Rent_Rq_List_admin'),
 
 
 

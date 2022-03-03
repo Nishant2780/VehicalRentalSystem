@@ -1,12 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Home</title>
-</head>
-<body>
-    User Home
-</body>
-</html>
+{% extends 'user_panel/base.html' %}
+{% load static %}
+
+{% block head %}
+<!-- <style>
+    .abcd{
+        padding-top: 500px;
+    }
+</style> -->
+    {% endblock %}
+
+{% block main %}
+
+    <!-- Banner Starts Here -->
+
+<div class="banner header-text">
+    <div class="owl-banner owl-carousel">
+      <div class="banner-item-01">
+        <div class="text-content">
+          <h4>Find your car today!</h4>
+          <h2>Lorem ipsum dolor sit amet</h2>
+        </div>
+      </div>
+      <div class="banner-item-02">
+        <div class="text-content">
+          <h4>Fugiat Aspernatur</h4>
+          <h2>Laboriosam reprehenderit ducimus</h2>
+        </div>
+      </div>
+      <div class="banner-item-03">
+        <div class="text-content">
+          <h4>Saepe Omnis</h4>
+          <h2>Quaerat suscipit unde minus dicta</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Banner Ends Here -->
+
+        User Home
+        <a href="{% url 'user_panel:Available_Vehical' %}">Available Vehical</a>
+        
+{% endblock %}
+

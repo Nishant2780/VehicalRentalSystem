@@ -12,6 +12,9 @@ urlpatterns = [
     path('admin_signup/', views.admin_signup, name='admin_signup'),
     path('owner_signup/', views.owner_signup, name='owner_signup'),
 
+    path('logout_user/', views.logout_user, name='logout_user'),
+
+
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -10,3 +10,9 @@ class Vehical_Registration_owner_form(forms.ModelForm):
         model  = Vehical_Registration
         fields = '__all__'
         exclude = ('AddDate','UserId', 'Status')
+
+class owner_VehicleDetails_form(forms.ModelForm):
+    class Meta:
+        model  = Vehical_Registration
+        fields = '__all__'
+        exclude = ('AddDate','UserId',)

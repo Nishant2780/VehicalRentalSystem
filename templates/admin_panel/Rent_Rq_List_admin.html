@@ -1,0 +1,50 @@
+{% extends 'admin_panel/base.html' %}
+{% load static %}
+
+{% block head %}
+    
+<style>  
+    
+</style>
+
+{% endblock %}
+
+    {% block main %}
+    
+
+
+    
+    <h1>Rent Rq Admin</h1>
+    <br>
+    <table class="table">
+        <thead class="table-dark" style="border-radius: 25px;">
+            <tr>
+                <th scope="col">NO.</th>
+                <th scope="col">UserId</th>
+                <th scope="col">StartDate</th>
+                <th scope="col">EndDate</th>
+                <th scope="col">Pickup</th>
+                <th scope="col">Drop</th>
+                <th scope="col">Status</th>               
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr class="shadow p-3 mb-5 bg-body rounded" >
+                <td scope="row">{{ forloop.counter }}</td>
+                <td>{{ i.UserId }}</td>
+                <td>{{ i.StartDate }}</td>
+                <td>{{ i.EndDate }}</td>
+                <td>{{ i.Pickup }}</td>
+                <td>{{ i.Drop }}</td>
+                <td>{{ i.Status }}</td>         
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+    
+    {% endblock %}

@@ -26,3 +26,12 @@ def Rent_Vehical(request):
         form = Vehical_Registration_owner_form()
         data = Vehical_Registration.objects.all()
     return render(request, 'owner_panel/Rent_Vehical.html', {'form': form, 'data' : data})
+
+
+
+def ownervehicledetails(request):
+    form = owner_VehicleDetails_form()
+    
+    data = Vehical_Registration.objects.all().filter(UserId=request.user.id)
+    # data = Vehical_Registration.objects.filter(UserId=request.user.id, Status="Available")
+    return render(request, 'owner_panel/Vehical_Details.html', {'data' : data, 'form': form})

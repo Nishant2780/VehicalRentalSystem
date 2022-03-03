@@ -92,4 +92,6 @@ class Vehical_Registration(models.Model):
     
     Prize = models.BigIntegerField()
     
+    def __str__(self):
+        return self.vehical_Variant
     
