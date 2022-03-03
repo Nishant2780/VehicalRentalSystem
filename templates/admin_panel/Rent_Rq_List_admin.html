@@ -26,6 +26,7 @@
                 <th scope="col">Pickup</th>
                 <th scope="col">Drop</th>
                 <th scope="col">Status</th>               
+                <th scope="col">Action</th>               
                 
             </tr>
         </thead>
@@ -38,7 +39,20 @@
                 <td>{{ i.EndDate }}</td>
                 <td>{{ i.Pickup }}</td>
                 <td>{{ i.Drop }}</td>
-                <td>{{ i.Status }}</td>         
+                <td>{{ i.Status }}</td>
+                 
+                <td>
+                    {% if i.Status == "Pending" %}
+                    <a class="btn btn-success" href="{% url 'admin_panel:accept_rent_req' i.id %}" role="button">Accept</a>
+                    <a class="btn btn-danger" href="{% url 'admin_panel:reject_rent_req' i.id %}" role="button">Reject</a>
+                    {% elif  i.Status == "Accepted" %}
+                    <a class="btn btn-danger" href="{% url 'admin_panel:reject_rent_req' i.id %}" role="button">Reject</a>
+
+                    {% else %}
+                    <a class="btn btn-success" href="{% url 'admin_panel:accept_rent_req' i.id %}" role="button">Accept</a>
+
+                    {% endif %}
+                </td>        
                 
             </tr>
             {% endfor %}

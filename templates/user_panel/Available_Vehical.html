@@ -89,14 +89,15 @@
       <div class="container ">
         <div class="row ">
     {% for i in data %}
-
+    
           <div class="col-md-4 shadow p-3 mb-5 bg-body rounded">
+            <a  href="{% url 'user_panel:Rent_Request' i.id  %}" >
             <div class="product-item">
               <img src="{{ i.Vehical_Orignal_img.url }}" alt="">
 
               <div class="down-content">
                 <h4>Large: Premium</h4>
-
+                  
                 <h6><small>from</small> {{ i.Prize }} <small>Per Day</small></h6>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, aliquam!</p>
@@ -113,7 +114,9 @@
                 </span>
               </div>
             </div>
-          </div>       &nbsp;
+          </a>  
+          </div>     
+          
           {% endfor %}
         </div>
       </div>

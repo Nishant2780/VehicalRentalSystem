@@ -225,12 +225,45 @@ def Users(request):
     data = User.objects.all()
     return render(request, 'admin_panel/user_details.html', {'data' : data})
 
+def deleteUsers(request, id):
+    details = User.objects.get(id=id)
+    details.delete()
+    return redirect("admin_panel:Users")
+
+
 def owner_rq_List(request):
     data = Vehical_Registration.objects.all().exclude(UserId=request.user.id)
     # data = Vehical_Registration.objects.filter(UserId=request.user.id, Status="Available")
     return render(request, 'admin_panel/owner_Rq_List.html', {'data' : data})
 
+def accept_owner_req(request, id):
+    data = Vehical_Registration.objects.get(id=id)
+    data.Status = "Accepted"
+    data.save()
+    return redirect("admin_panel:owner_rq_List")
+
+def reject_owner_req(request, id):
+    data = Vehical_Registration.objects.get(id=id)
+    data.Status = "Rejected"
+    data.save()
+    return redirect("admin_panel:owner_rq_List")
+    
+
+
+
 def Rent_Rq_List_admin(request):
     data = VehicalRequest.objects.filter(VehicalId__UserId=request.user.id)
     # data = Vehical_Registration.objects.filter(UserId=request.user.id, Status="Available")
     return render(request, 'admin_panel/Rent_Rq_List_admin.html', {'data' : data})
+
+def accept_rent_req(request, id):
+    data = VehicalRequest.objects.get(id=id)
+    data.Status = "Accepted"
+    data.save()
+    return redirect("admin_panel:Rent_Rq_List_admin")
+
+def reject_rent_req(request, id):
+    data = VehicalRequest.objects.get(id=id)
+    data.Status = "Rejected"
+    data.save()
+    return redirect("admin_panel:Rent_Rq_List_admin")

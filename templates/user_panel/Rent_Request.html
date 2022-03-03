@@ -85,9 +85,27 @@
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{form.as_p}}      
-        <button type="submit"> Submit</button>
-    </form>
+        <!-- {{form}}       -->
+    
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">start date</label>
+      {{ form.StartDate}}
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">End date</label>
+      {{ form.EndDate}}
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Pickup</label>
+      {{ form.Pickup}}
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">srop</label>
+      {{ form.Drop}}
+    </div>
+    <button type="submit"> Submit</button>
+  </form>
 
     {% endblock %}
 

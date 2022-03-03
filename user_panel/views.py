@@ -14,7 +14,7 @@ def home(request):
 
 def Available_Vehical(request):
     # data = Vehical_Registration.objects.all().exclude(UserId=request.user.id)
-    data = Vehical_Registration.objects.filter(Status="Available").exclude(UserId=request.user.id)
+    data = Vehical_Registration.objects.filter(Status="Accepted").exclude(UserId=request.user.id)
     return render(request, 'user_panel/Available_Vehical.html', {'data' : data})
 
 
@@ -33,5 +33,5 @@ def Rent_Request(request, id):
             print(form.errors)
     else:
         form = VehicalRequestForm()
-        data = VehicalRequest.objects.all()
-    return render(request, 'user_panel/Rent_Request.html', {'form': form, 'data' : data, 'r_vehicale' : r_vehicale })
+        abcd = VehicalRequest.objects.all()
+    return render(request, 'user_panel/Rent_Request.html', {'form': form, 'data' : abcd, 'r_vehicale' : r_vehicale })

@@ -6,6 +6,9 @@ app_name = "admin_panel"
 
 urlpatterns = [
     path('home/', views.home, name='home'),
+    
+    path('Users/', views.Users, name='Users'),
+    path('deleteUsers/<int:id>/', views.deleteUsers, name='deleteUsers'),
 
     path('create_type/', views.create_type, name='create_type'),
     path('updatetype/<int:id>', views.updatetype, name="updatetype"),
@@ -30,10 +33,14 @@ urlpatterns = [
     path('update_Register_Vehical/<int:id>', views.update_Register_Vehical, name="update_Register_Vehical"),
     path('delete_Register_Vehical/<int:id>', views.delete_Register_Vehical, name="delete_Register_Vehical"),
 
-    path('Users/', views.Users, name='Users'),
 
     path('owner_rq_List/', views.owner_rq_List, name='owner_rq_List'),
+    path('accept_owner_req/<int:id>', views.accept_owner_req, name='accept_owner_req'),
+    path('reject_owner_req/<int:id>', views.reject_owner_req, name='reject_owner_req'),
+
     path('Rent_Rq_List_admin/', views.Rent_Rq_List_admin, name='Rent_Rq_List_admin'),
+    path('accept_rent_req/<int:id>', views.accept_rent_req, name='accept_rent_req'),
+    path('reject_rent_req/<int:id>', views.reject_rent_req, name='reject_rent_req'),
 
 
 

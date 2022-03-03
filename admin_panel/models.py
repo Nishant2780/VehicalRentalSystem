@@ -74,8 +74,9 @@ class vehical_Variant(models.Model):
 
 
 Status = (
-    ('Available', 'Available'),
-    ('Not Available','Not Available'),
+    ('Pending', 'Pending'),
+    ('Accepted','Accepted'),
+    ('In Use','In Use'),
 )
 
 class Vehical_Registration(models.Model):
@@ -86,7 +87,7 @@ class Vehical_Registration(models.Model):
     Model_Year = models.IntegerField()
     KM_reading = models.BigIntegerField()
     Vehical_Orignal_img = models.ImageField(upload_to='Vehical_Orignal_img')
-    Status = models.CharField(max_length=50, choices=Status)
+    Status = models.CharField(max_length=50, choices=Status, default='Pending')
     Owner_Driving_Licence = models.FileField(upload_to='Owner_Driving_Licence')
     RCBOOK = models.FileField(upload_to='RCBOOK')
     

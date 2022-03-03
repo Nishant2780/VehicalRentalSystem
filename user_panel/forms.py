@@ -12,21 +12,27 @@ class VehicalRequestForm(forms.ModelForm):
         widgets = {
             'StartDate': forms.DateInput(attrs={
                 'type':'date',
-                'placeholder': 'Enter your First name'
+                'placeholder': 'Enter your First name',
+                'class':'mb-3 form-control',
             }),
         
             'EndDate': forms.DateInput(attrs={
                 'type':'date',
+                'class':'mb-3 form-control',
 
                     'placeholder': 'Enter your Last name',
                 }),
 
             'Pickup': forms.TextInput(attrs={
                     'placeholder': 'Enter your Last name',
+                    'class':'mb-3 form-control',
+
                 }),
 
             'Drop': forms.TextInput(attrs={
                     'placeholder': 'Enter your Last name',
+                    'class':'mb-3 form-control',
+                    
                 }),
 
 

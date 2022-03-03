@@ -27,10 +27,10 @@
                 <th scope="col">Model_Year</th>
                 <th scope="col">KM_reading</th>
                 <th scope="col">Vehical_Orignal_img</th>
-                <th scope="col">Status</th>
-                <th scope="col">Prize Per Day</th>
                 <th scope="col">Owner_Driving_Licence</th>
                 <th scope="col">RCBOOK</th>
+                <th scope="col">Prize Per Day</th>
+                <th scope="col">Status</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -50,8 +50,6 @@
                     No Img
                     {% endif %}
                 </td>
-                <td>{{ i.Status }}</td>
-                <td>{{ i.Prize }}</td>
                 <td>
                     {% if i.Owner_Driving_Licence %}
                     <img src="{{ i.Owner_Driving_Licence.url }}" class="rounded" alt="">
@@ -66,13 +64,20 @@
                     No Img
                     {% endif %}
                 </td>
-                <td>{{ i.Action }}
+                <td>{{ i.Prize }}</td>
+                <td>{{ i.Status }}</td>
+                <td>
+                    {% if i.Status == "Pending" %}
+                    <a class="btn btn-success" href="{% url 'admin_panel:accept_owner_req' i.id %}" role="button">Accept</a>
+                    <a class="btn btn-danger" href="{% url 'admin_panel:reject_owner_req' i.id %}" role="button">Reject</a>
+                    {% elif  i.Status == "Accepted" %}
+                    <a class="btn btn-danger" href="{% url 'admin_panel:reject_owner_req' i.id %}" role="button">Reject</a>
 
-                    <a class="btn btn-secondary" href="{% url 'admin_panel:update_Register_Vehical' i.id %}" role="button">Update</a>
-                    <a class="btn btn-danger" href="{% url 'admin_panel:delete_Register_Vehical' i.id %}" role="button">Delete</a>
-                   
-                </td>
-            
+                    {% else %}
+                    <a class="btn btn-success" href="{% url 'admin_panel:accept_owner_req' i.id %}" role="button">Accept</a>
+
+                    {% endif %}
+                </td>            
             </tr>
             {% endfor %}
         </tbody>
