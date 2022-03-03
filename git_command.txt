@@ -25,3 +25,6 @@ git commit -m "first commit"
 git add .
 git commit -m "added git commands"
 git push origin master
+
+to pull code 
+git pull origin master
