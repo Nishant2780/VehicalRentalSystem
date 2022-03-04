@@ -25,6 +25,7 @@
                 <th scope="col">EndDate</th>
                 <th scope="col">Pickup</th>
                 <th scope="col">Drop</th>
+                <th scope="col">Addhar img</th>
                 <th scope="col">Status</th>               
                 <th scope="col">Action</th>               
                 
@@ -39,6 +40,13 @@
                 <td>{{ i.EndDate }}</td>
                 <td>{{ i.Pickup }}</td>
                 <td>{{ i.Drop }}</td>
+                <td>
+                    {% if i.Addhar_img %}
+                    <img src="{{ i.Addhar_img.url }}" style="height: 75px;" class="rounded" alt="">
+                    {% else %}
+                    No Img
+                    {% endif %}
+                </td>
                 <td>{{ i.Status }}</td>
                  
                 <td>

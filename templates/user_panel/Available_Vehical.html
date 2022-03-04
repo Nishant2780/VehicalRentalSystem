@@ -49,11 +49,19 @@ Available Vehical
         <a href="{% url 'user_panel:type_wise_filter_in_userpanel' i.id %}" type="button" class="btn btn-outline-dark"> {{ i.Type_Name }} </a>
     {% endfor %}
         <br>
-        <br>
 
-
-    <br>
-    <table class="table">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Select City</a>
+          
+          <div class="dropdown-menu">
+            {% for i in city %}
+              <a class="dropdown-item" href="../../user_panel/city_wise_search/{{i.State}}">{{i.State}}</a>
+            {% endfor %}                     
+            
+          </div>
+      </li>
+        
+    <!-- <table class="table">
         <thead class="table-dark" style="border-radius: 25px;">
             <tr>
                 <th scope="col">NO.</th>
@@ -93,7 +101,7 @@ Available Vehical
             </tr>
             {% endfor %}
         </tbody>
-    </table>
+    </table> -->
 
 
 
@@ -108,17 +116,17 @@ Available Vehical
               <img src="{{ i.Vehical_Orignal_img.url }}" alt="">
 
               <div class="down-content">
-                <h4>Large: Premium</h4>
+                <h4>{{ i.vehical_Variant }}</h4>
                   
-                <h6><small>from</small> {{ i.Prize }} <small>Per Day</small></h6>
+                <h6> {{ i.Prize }}₹ <small>Per Day</small></h6>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, aliquam!</p>
+                
 
                 <small>
-                    <strong title="passegengers"><i class="fa fa-user"></i> {{ i.vehical_Variant }} </strong> &nbsp;&nbsp;&nbsp;
-                    <strong title="luggages"><i class="fa fa-briefcase"></i> {{ i.Vehical_Number }}</strong> &nbsp;&nbsp;&nbsp;
-                    <strong title="doors"><i class="fa fa-sign-out"></i> {{ i.Model_Year }}</strong> &nbsp;&nbsp;&nbsp;
-                    <strong title="transmission"><i class="fa fa-cog"></i> {{ i.KM_reading }}</strong>
+                    <!-- <strong title="passegengers"><i class="fa fa-user"></i> {{ i.vehical_Variant }} </strong> &nbsp;&nbsp;&nbsp; -->
+                    <!-- <strong title="luggages"><i class="fa fa-briefcase"></i> {{ i.Vehical_Number }}</strong> &nbsp;&nbsp;&nbsp; -->
+                    <!-- <strong title="doors"><i class="fa fa-sign-out"></i> {{ i.Model_Year }}</strong> &nbsp;&nbsp;&nbsp; -->
+                    <!-- <strong title="transmission"><i class="fa fa-cog"></i> {{ i.KM_reading }}</strong> -->
                 </small>
 
                 <span>

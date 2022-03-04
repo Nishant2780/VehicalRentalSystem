@@ -34,6 +34,9 @@ class VehicalRequestForm(forms.ModelForm):
                     'class':'mb-3 form-control',
                     
                 }),
+            
+            
+            
 
 
 

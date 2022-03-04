@@ -17,7 +17,7 @@ class VehicalRequest(models.Model):
     EndDate = models.DateField()
     Pickup = models.CharField(max_length=20)
     Drop = models.CharField(max_length=20)
-    # Addhar_img = models.ImageField(upload_to='User_Addhar_img')
+    Addhar_img = models.ImageField(upload_to='User_Addhar_img')
     Status = models.CharField(max_length=50, choices=Status, default='Pending')
 
     def __str__(self):

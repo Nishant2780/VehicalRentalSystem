@@ -6,6 +6,16 @@ from django.core.validators import RegexValidator
 from django.utils.translation import gettext_lazy as _
 
 
+Status = (
+    ('ahmedabad', 'ahmedabad'),
+    ('Rajkot','Rajkot'),
+    ('Delhi','Delhi'),
+    ('Mumbai','Mumbai'),
+    ('hyderabad','hyderabad'),
+    ('Goa','Goa'),
+    ('vadodara','vadodara'),
+)
+
 class User(AbstractUser):
     username = None
     email = models.EmailField(_('email address'), unique=True)
@@ -13,7 +23,7 @@ class User(AbstractUser):
                                      RegexValidator(r'^\d{10}$')])
     Rest_Name = models.CharField(max_length=80, null=True, blank=True)
     Address = models.CharField(max_length=200)
-    State = models.CharField(max_length=20)
+    State = models.CharField(max_length=20, choices=Status)
     Pincode = models.CharField(max_length=6, validators=[
         RegexValidator(r'^\d{6}$')])
     is_user = models.BooleanField(default=False)

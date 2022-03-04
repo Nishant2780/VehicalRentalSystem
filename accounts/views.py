@@ -4,8 +4,6 @@ from django.contrib.auth import authenticate, login, logout
 
 
 from django.contrib import messages
-
-import accounts
 from .models import *
 from django.urls import reverse
 from .forms import *
@@ -35,7 +33,7 @@ def user_signup(request):
 
 def admin_signup(request):
     if request.method == "POST":
-        form_v = UserloginForm(request.POST, request.FILES)
+        form_v = adminloginForm(request.POST, request.FILES)
         if form_v.is_valid():
             asd = form_v.save()
             asd.is_super = True
@@ -45,7 +43,7 @@ def admin_signup(request):
         else:
             print(form_v.errors)
     else: 
-        form_v = UserloginForm()
+        form_v = adminloginForm()
     return render (request, "accounts/admin_signup.html", {'form': form_v})
 
     

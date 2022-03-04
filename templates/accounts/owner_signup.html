@@ -32,12 +32,17 @@
     <h1>Owner Sign Up</h1>
     
     <div class="txtb">
-        <input type="email" name="email">
+        {{ form.email}}
         <span data-placeholder="email" ></span>
     </div>
 
     <div class="txtb">
-        <input type="password" name="password">
+        {{ form.password}}
+        <span data-placeholder="Password" ></span>
+    </div>
+    
+    <div class="txtb">
+        {{ form.State}}
         <span data-placeholder="Password" ></span>
     </div>
 
