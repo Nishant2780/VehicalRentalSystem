@@ -20,15 +20,18 @@ urlpatterns = [
 
 
     path('category/', views.category, name='category'),
+    path('type_wise_category/<int:id>', views.type_wise_category, name='type_wise_category'),
     path('updatecategory/<int:id>', views.updatecategory, name="updatecategory"),
     path('deletecategory/<int:id>', views.deletecategory, name="deletecategory"),
 
     path('Vehical_Variant/', views.Vehical_Variant, name='Vehical_Variant'),
+    path('type_wise_category_in_variant/<int:id>', views.type_wise_category_in_variant, name='type_wise_category_in_variant'),
     path('Add_Vehical_Variant/', views.Add_Vehical_Variant, name='Add_Vehical_Variant'),
     path('updatevariant/<int:id>', views.updatevariant, name="updatevariant"),
     path('deletevariant/<int:id>', views.deletevariant, name="deletevariant"),
 
     path('vehical_Registration/', views.vehical_Registration, name='vehical_Registration'),
+    path('type_wise_filter_in_registration/<int:id>', views.type_wise_filter_in_registration, name='type_wise_filter_in_registration'),
     path('Register_Vehical_List/', views.Register_Vehical_List, name='Register_Vehical_List'),
     path('update_Register_Vehical/<int:id>', views.update_Register_Vehical, name="update_Register_Vehical"),
     path('delete_Register_Vehical/<int:id>', views.delete_Register_Vehical, name="delete_Register_Vehical"),
@@ -41,6 +44,9 @@ urlpatterns = [
     path('Rent_Rq_List_admin/', views.Rent_Rq_List_admin, name='Rent_Rq_List_admin'),
     path('accept_rent_req/<int:id>', views.accept_rent_req, name='accept_rent_req'),
     path('reject_rent_req/<int:id>', views.reject_rent_req, name='reject_rent_req'),
+
+    path('Available_Vehical_List/', views.Available_Vehical_List, name='Available_Vehical_List'),
+    path('type_wise_filter_in_Available_Vehical/<int:id>', views.type_wise_filter_in_Available_Vehical, name='type_wise_filter_in_Available_Vehical'),
 
 
 

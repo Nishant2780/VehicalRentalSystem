@@ -34,6 +34,12 @@ def Rent_Vehical(request):
 def ownervehicledetails(request):
     form = owner_VehicleDetails_form()
     
-    data = Vehical_Registration.objects.all().filter(UserId=request.user.id)
+    data = Vehical_Registration.objects.filter(UserId=request.user.id)
     # data = Vehical_Registration.objects.filter(UserId=request.user.id, Status="Available")
     return render(request, 'owner_panel/Vehical_Details.html', {'data' : data, 'form': form})
+
+
+def delete_vehicle(request, id):
+    details = Vehical_Registration.objects.get(id=id)
+    details.delete()
+    return redirect("owner_panel:ownervehicledetails")

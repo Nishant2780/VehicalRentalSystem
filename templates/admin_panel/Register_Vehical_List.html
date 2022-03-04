@@ -25,6 +25,10 @@
     <br>
     <br>
 
+    {% for i in types %}
+        <a href="{% url 'admin_panel:type_wise_filter_in_registration' i.id %}" type="button" class="btn btn-outline-dark"> {{ i.Type_Name }} </a>
+    {% endfor %}
+
     <h1>List Of Register Vehical</h1>
     <br>
     <table class="table">

@@ -11,6 +11,7 @@ urlpatterns = [
     path('Rent_Vehical/', views.Rent_Vehical, name='Rent_Vehical'),
     
     path('ownervehicledetails/', views.ownervehicledetails, name='ownervehicledetails'),
+    path('delete_vehicle/<int:id>', views.delete_vehicle, name='delete_vehicle'),
 
 
 

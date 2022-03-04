@@ -22,9 +22,13 @@
         {% csrf_token %}
         {{form.as_p}}
         <button class="btn btn-danger" type="submit"> Submit</button>
-    </form>
+    </form> 
     <br>
     <br>
+
+    {% for i in types %}
+    <a href="{% url 'admin_panel:type_wise_category' i.id %}" type="button" class="btn btn-outline-dark"> {{ i.Type_Name }} </a>
+    {% endfor %}
 
 
     <h1>Vehical Category </h1>

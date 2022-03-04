@@ -1,6 +1,12 @@
 {% extends 'user_panel/base.html' %}
 {% load static %}
 
+{% block title %}
+
+Available Vehical
+
+{% endblock %}
+
 {% block head %}
 <!-- <style>
     .abcd{
@@ -36,10 +42,16 @@
     </div>
   </div>
     <!-- Banner Ends Here -->
+    <!-- <h1>Available Vehical</h1> -->
+    <br>
+
+    {% for i in types %}
+        <a href="{% url 'user_panel:type_wise_filter_in_userpanel' i.id %}" type="button" class="btn btn-outline-dark"> {{ i.Type_Name }} </a>
+    {% endfor %}
+        <br>
+        <br>
 
 
-
-        <h1>Available Vehical</h1>
     <br>
     <table class="table">
         <thead class="table-dark" style="border-radius: 25px;">

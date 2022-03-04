@@ -52,6 +52,7 @@ def deletetype(request, id):
 
 
 
+
 def addbrand(request):
     if request.method == 'POST':
         form = brandform(request.POST, request.FILES)
@@ -96,7 +97,6 @@ def category(request):
     if request.method == 'POST':
         form = category_listform(request.POST, request.FILES)
         if form.is_valid():
-            
             data = form.save(commit=False)
             data.UserId=request.user
             data.save()
@@ -105,9 +105,27 @@ def category(request):
             print(form.errors)
     else:
         form = category_listform()
-        form = category_listform()
         data = category_list.objects.all()
-    return render(request, 'admin_panel/vehical_category.html', {'form': form, 'data' : data})
+        types = VehicalType.objects.all()
+    return render(request, 'admin_panel/vehical_category.html', {'form': form, 'data' : data, 'types': types})
+
+def type_wise_category(request, id):
+    
+    if request.method == 'POST':
+        form = category_listform(request.POST, request.FILES)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.UserId=request.user
+            data.save()
+            return HttpResponseRedirect(reverse('admin_panel:category'))
+        else:
+            print(form.errors)
+
+    else:
+        form = category_listform()
+        data = category_list.objects.filter(Vehical_TypeID=id)
+        types = VehicalType.objects.all()
+        return render(request, 'admin_panel/vehical_category.html', {'form': form, 'data' : data, 'types': types})
 
 
 def updatecategory(request, id):
@@ -145,15 +163,32 @@ def Add_Vehical_Variant(request):
             print(form.errors)
     else:
         form = vehical_Variantform()
-        data = vehical_Variant.objects.all()
+        data = vehical_Variant.objects.all()        
     return render(request, 'admin_panel/Add_Variant.html', {'form': form, 'data' : data})
+
+def type_wise_category_in_variant(request, id):
+    if request.method == 'POST':
+        form = vehical_Variantform(request.POST, request.FILES)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.UserId=request.user
+            data.save()
+            return HttpResponseRedirect(reverse('admin_panel:Vehical_Variant'))
+        else:
+            print(form.errors)
+    else:
+        form = vehical_Variantform()
+        data = vehical_Variant.objects.filter(Vahical_Type=id)
+        types = VehicalType.objects.all()
+        return render(request, 'admin_panel/Vehical_Variant.html', {'form': form, 'data' : data, 'types': types})
 
 
 
 def Vehical_Variant(request):
     form = vehical_Variantform()
+    types = VehicalType.objects.all()
     data = vehical_Variant.objects.all()
-    return render(request, 'admin_panel/Vehical_Variant.html', { 'data' : data})
+    return render(request, 'admin_panel/Vehical_Variant.html', { 'data' : data, 'types': types, 'form': form })
     
 
 def updatevariant(request, id):
@@ -182,6 +217,7 @@ def vehical_Registration(request):
         if form.is_valid():
             data = form.save(commit=False)
             data.UserId=request.user
+            data.Status = "Accepted"
             data.save()
             return HttpResponseRedirect(reverse('admin_panel:Register_Vehical_List'))
         else:
@@ -191,11 +227,27 @@ def vehical_Registration(request):
         data = Vehical_Registration.objects.all()
     return render(request, 'admin_panel/Vehical_Registration.html', {'form': form, 'data' : data})
 
+def type_wise_filter_in_registration(request,id):
+    if request.method == 'POST':
+        form = Vehical_Registrationform(request.POST, request.FILES)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.UserId=request.user
+            data.save()
+            return HttpResponseRedirect(reverse('admin_panel:Register_Vehical_List'))
+        else:
+            print(form.errors)
+    else:
+        form = Vehical_Registrationform()
+        types = VehicalType.objects.all()
+        data = Vehical_Registration.objects.filter(Vahical_Type=id)
+        return render(request, 'admin_panel/Register_Vehical_List.html', {'form': form, 'data' : data, 'types' : types})
+
 
 def Register_Vehical_List(request):
-    form = Vehical_Registrationform()
+    types = VehicalType.objects.all()
     data = Vehical_Registration.objects.all()
-    return render(request, 'admin_panel/Register_Vehical_List.html', {'data' : data})
+    return render(request, 'admin_panel/Register_Vehical_List.html', {'data' : data, 'types': types})
 
 
 def update_Register_Vehical(request, id):
@@ -252,7 +304,8 @@ def reject_owner_req(request, id):
 
 
 def Rent_Rq_List_admin(request):
-    data = VehicalRequest.objects.filter(VehicalId__UserId=request.user.id)
+    data = VehicalRequest.objects.all()
+    # data = VehicalRequest.objects.filter(VehicalId__UserId=request.user.id)
     # data = Vehical_Registration.objects.filter(UserId=request.user.id, Status="Available")
     return render(request, 'admin_panel/Rent_Rq_List_admin.html', {'data' : data})
 
@@ -267,3 +320,18 @@ def reject_rent_req(request, id):
     data.Status = "Rejected"
     data.save()
     return redirect("admin_panel:Rent_Rq_List_admin")
+
+
+
+
+
+def Available_Vehical_List(request):
+    # data = Vehical_Registration.objects.all().exclude(UserId=request.user.id)
+    data = Vehical_Registration.objects.filter(Status="Accepted")
+    types = VehicalType.objects.all()
+    return render(request, 'admin_panel/Available_Vehical_List.html', {'data' : data, 'types' : types})
+
+def type_wise_filter_in_Available_Vehical(request,id):
+    data = Vehical_Registration.objects.filter(Vahical_Type=id)
+    types = VehicalType.objects.all()
+    return render(request, 'admin_panel/Available_Vehical_List.html', {'data' : data, 'types': types})

@@ -81,6 +81,7 @@ Status = (
 
 class Vehical_Registration(models.Model):
     UserId = models.ForeignKey(User, on_delete=models.CASCADE)
+    Vahical_Type = models.ForeignKey(VehicalType, on_delete=models.CASCADE,default=1)
     AddDate = models.DateTimeField(auto_now_add=True)
     vehical_Variant = models.ForeignKey(vehical_Variant, on_delete=models.CASCADE)
     Vehical_Number = models.CharField(max_length=10)

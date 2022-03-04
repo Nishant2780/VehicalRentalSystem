@@ -18,10 +18,14 @@
     {% block main %}
     
 
-    <br>
-    <br>
 
-    <a class="btn btn-danger" href="{% url 'admin_panel:Add_Vehical_Variant' %}">Add New Variant</a>
+
+    <a class="btn btn-danger" href="{% url 'admin_panel:Add_Vehical_Variant' %}">Add New Variant</a> <br/> <br> <br>
+
+    {% for i in types %}
+        <a href="{% url 'admin_panel:type_wise_category_in_variant' i.id %}" type="button" class="btn btn-outline-dark"> {{ i.Type_Name }} </a>
+    {% endfor %}
+
 
     <h1>Vehical Variant </h1>
     <table class="table">

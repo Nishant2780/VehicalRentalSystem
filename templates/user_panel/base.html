@@ -8,10 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="icon" href="{% static '/images/user_panel/favicon.ico' %}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title></title>
+    <title>{% block title %}
+      {% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/user_css/bootstrap.min.css' %}" rel="stylesheet">
@@ -72,19 +73,19 @@
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>Car Rental <em>Website</em></h2></a>
+          <a class="navbar-brand" href="index.html"><h2>Vehical Rental <em>Website</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home
+                    <a class="nav-link" href="{% url 'user_panel:home' %}">Home
                       <span class="sr-only">(current)</span>
                     </a>
                 </li> 
 
-                <li class="nav-item"><a class="nav-link" href="fleet.html">Fleet</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'user_panel:Available_Vehical' %}">Vehicles</a></li>
                 
 
                 <li class="nav-item dropdown">
@@ -99,6 +100,7 @@
                 </li>
 
                 <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'accounts:owner_signup' %}">Become a Host</a></li>
                 
                 <li class="nav-item"><a class="nav-link" href="{% url 'accounts:logout_user' %}">Logout</a></li>
             </ul>

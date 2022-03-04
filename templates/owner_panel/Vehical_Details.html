@@ -33,7 +33,7 @@
     <table class="table">
         <thead class="table-dark" style="border-radius: 25px;">
             <tr>
-                <th scope="col">NO.</th>
+                
                 <th scope="col">vehical_Variant</th>
                 <th scope="col">Vehical_Number</th>
                 <th scope="col">Model_Year</th>
@@ -45,13 +45,13 @@
             </tr>
         </thead>
         <tbody>
-            
+          {% for i in data %}
             <tr class="shadow p-3 mb-5 bg-body rounded" >
-                <td scope="row">{{ forloop.counter }}</td>
-                <td>{{ data.vehical_Variant }}</td>
-                <td>{{ data.Vehical_Number }}</td>
-                <td>{{ data.Model_Year }}</td>
-                <td>{{ data.KM_reading }}</td>
+                
+                <td>{{ i.vehical_Variant }}</td>
+                <td>{{ i.Vehical_Number }}</td>
+                <td>{{ i.Model_Year }}</td>
+                <td>{{ i.KM_reading }}</td>
                 <td>
                     {% if data.Vehical_Orignal_img %}
                     <img src="{{ i.Vehical_Orignal_img.url }}" style="height: 50px;" class="rounded" alt="">
@@ -60,14 +60,13 @@
                     {% endif %}
                 </td>
                 
-                <td>{{ data.Prize }}</td>
-                <td>{{ data.Status }}</td>
-                <td>{{ data.Action }}
-                 
-              </td>
-                
-            
+                <td>{{ i.Prize }}</td>
+                <td>{{ i.Status }}</td>
+                <td>{{ i.Action }}              
+                <a class="btn btn-danger" href="{% url 'owner_panel:delete_vehicle' i.id %}" role="button">Delete</a>               
+              </td>   
             </tr>
+            {% endfor %}
             
         </tbody>
     </table>

@@ -7,7 +7,9 @@ app_name = "user_panel"
 urlpatterns = [
     
     path('home/', views.home, name='home'),
+
     path('Available_Vehical/', views.Available_Vehical, name='Available_Vehical'),
+    path('type_wise_filter_in_userpanel/<int:id>', views.type_wise_filter_in_userpanel, name='type_wise_filter_in_userpanel'),
     
     
     path('Rent_Request/<int:id>/', views.Rent_Request, name='Rent_Request'),
