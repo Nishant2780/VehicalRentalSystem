@@ -8,7 +8,7 @@ class VehicalRequestForm(forms.ModelForm):
     class Meta:
         model  = VehicalRequest
         fields = '__all__'
-        exclude = ('UserId', 'RequestDate','VehicalId', 'Status')
+        exclude = ('UserId', 'RequestDate','VehicalId', 'Status', 'Total_Price')
         widgets = {
             'StartDate': forms.DateInput(attrs={
                 'type':'date',

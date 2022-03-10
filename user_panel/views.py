@@ -5,6 +5,8 @@ from .models import *
 from django.urls import reverse
 from .forms import *
 from user_panel.models import *
+import datetime
+
 
 # Create your views here.
 
@@ -31,7 +33,7 @@ def City_filter_in_userpanel(request,state):
     
     types = VehicalType.objects.all()
 
-    data = Vehical_Registration.objects.filter(UserId__State=state)
+    data = Vehical_Registration.objects.filter(UserId__State=state, Status="Accepted").exclude(UserId=request.user.id)
     print(data)
     return render(request, 'user_panel/Available_Vehical.html', {'data' : data, 'types': types})
 
@@ -46,6 +48,8 @@ def Rent_Request(request, id):
             data = form.save(commit=False)
             data.UserId=request.user
             data.VehicalId=r_vehicale
+            delta = datetime.datetime.strptime(request.POST['EndDate'], "%Y-%m-%d") - datetime.datetime.strptime(request.POST['StartDate'], "%Y-%m-%d")
+            data.Total_Price = delta.days * r_vehicale.Prize
             data.save()
             return HttpResponseRedirect(reverse('user_panel:home'))
         else:
