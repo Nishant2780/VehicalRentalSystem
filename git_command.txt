@@ -42,3 +42,25 @@ git push origin dhruv
 
 
 extra commands
+
+
+
+pip install django
+pip install psycopg2
+django-admin startproject railway_django
+cd railway_django
+
+
+
+
+DATABASES = {
+    'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
